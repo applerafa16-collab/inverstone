@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encontre casacos, jaquetas e roupas de frio na nossa loja.">
+    <title>Inverno Store | Moda de Inverno</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<link rel="manifest" href="manifest.json">
+
+
+</head>
+<body>
+
+<header class="header">
+    <a href="#" class="logo">INVERNO<span>STORE.</span></a>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre</a>
+    </nav>
+
+    <button class="cart-button" onclick="toggleCart()">
+        🛍 Carrinho <span id="cart-count">0</span>
+    </button>
+</header>
+
+<main>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="eyebrow">COLEÇÃO OUTONO / INVERNO</span>
+            <h1>O frio chegou.<br><span>Seu estilo também.</span></h1>
+            <p>Descubra peças que combinam conforto, elegância e personalidade.</p>
+            <a href="#produtos" class="primary-button">COMPRAR AGORA</a>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <section class="benefits">
+        <div>❄️ <span>Conforto para o inverno</span></div>
+        <div>🚚 <span>Consulte opções de entrega</span></div>
+        <div>💳 <span>Compra fácil e segura</span></div>
+    </section>
+
+    <section class="products-section" id="produtos">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">NOSSA COLEÇÃO</span>
+                <h2>Vista-se para o frio</h2>
+            </div>
+            <input type="search" id="search" placeholder="Buscar produto...">
+        </div>
+
+        <div class="categories">
+            <button class="category active" data-category="todos">Todos</button>
+            <button class="category" data-category="casacos">Casacos</button>
+            <button class="category" data-category="jaquetas">Jaquetas</button>
+            <button class="category" data-category="moletons">Moletons</button>
+            <button class="category" data-category="acessorios">Acessórios</button>
+        </div>
+
+        <div id="products-grid" class="products-grid">
+            <p class="loading">Carregando produtos...</p>
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <span class="eyebrow">INVERNO STORE</span>
+        <h2>Elegância em todas as estações.</h2>
+        <p>Selecionamos peças especiais para deixar seus dias frios mais confortáveis e cheios de estilo.</p>
+    </section>
+</main>
+
+<!-- Carrinho -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<aside class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+        <h2>Seu carrinho</h2>
+        <button onclick="toggleCart()" class="close-button">✕</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+        <h3>Total: <span id="cart-total">R$ 0,00</span></h3>
+        <button class="primary-button full-button" onclick="openCheckout()">
+            FINALIZAR PEDIDO
+        </button>
+    </div>
+</aside>
+
+<!-- Finalização -->
+<div class="modal" id="checkout-modal">
+    <div class="modal-content">
+        <button class="close-button modal-close" onclick="closeCheckout()">✕</button>
+        <span class="eyebrow">QUASE LÁ!</span>
+        <h2>Finalizar pedido</h2>
+
+        <form id="checkout-form">
+            <label>Nome completo</label>
+            <input name="name" required placeholder="Seu nome">
+
+            <label>Telefone / WhatsApp</label>
+            <input name="phone" required placeholder="(00) 00000-0000">
+
+            <label>Endereço de entrega</label>
+            <textarea name="address" required placeholder="Rua, número, bairro, cidade e CEP"></textarea>
+
+            <p class="checkout-total">Total: <strong id="checkout-total">R$ 0,00</strong></p>
+
+            <button class="primary-button full-button" type="submit" id="submit-order">
+                CONFIRMAR PEDIDO
+            </button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <a href="#" class="logo">INVERNO<span>STORE.</span></a>
+    <p>Moda, conforto e elegância para os dias frios.</p>
+    <small>© 2026 Inverno Store. Todos os direitos reservados.</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
